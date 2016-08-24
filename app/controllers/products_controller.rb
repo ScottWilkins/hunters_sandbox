@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def feed
+    @test = "test"
     @products = Product.unclaimed
   end
 

@@ -75,4 +75,3 @@ end
 source 'http://dresssed.com/gems/a32d5c5588e50352351a/' do
   gem 'dresssed-gimlet'
 end
-

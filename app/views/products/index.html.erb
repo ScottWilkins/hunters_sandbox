@@ -7,7 +7,7 @@
 <% content_for :actions do %>
     <%= button_to "Sell a New Item", new_product_path, class: "btn-sq btn-hntrs-red", method: :get %>
 <% end %>
-
+<p><%= @test %> </p>
 <div class="sheet sheet-condensed">
   <div class="sheet-inner">
     <table class="table">
@@ -21,7 +21,9 @@
         </tr>
       </thead>
       <tbody>
+
       <% @products.each do |product| %>
+        <% if product.active %>
         <tr>
           <td><%= link_to (image_tag product.avatar.url(:thumb), style:"height:50px"),product %></td>
           <td><%= product.name %></td>
@@ -34,6 +36,7 @@
                 <%= link_to icon_tag("trash-o"), product, rel: 'tooltip', title: 'Delete',
                             data: { confirm: 'Are you sure?' }, method: :delete %>
             <% end %>
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -44,4 +47,3 @@
     </table>
   </div><!-- /.sheet-inner -->
 </div><!-- /.sheet -->
-
