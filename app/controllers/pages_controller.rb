@@ -8,4 +8,8 @@ class PagesController < ApplicationController
     @message = "welcome"
   end
 
+  def profile
+    @profile = current_user
+  end
+
 end

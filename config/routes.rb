@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :wishes
   resources :products
-
+  resources :users
 
   devise_for :users, controllers: { sessions: "users/sessions" }
   #devise_for :users, controllers: { sessions: "users/sessions" }, path_names: {sign_in: "hunters_in", sign_out: "hunters_out"}
@@ -14,14 +14,15 @@ Rails.application.routes.draw do
   root :to => "pages#index"
 
   get 'pages' => 'pages#index'
-
+  # router.get('/hunt')
   get 'hunt' => 'users#hunt'
   get 'sell' => 'users#sell'
-  get 'feed' => 'users#feed'
-
+  get 'feed' => 'products#index'
+  
   get 'cart' => 'carts#show'
   get 'wishlist' => 'wishlist#index'
   get 'destroy_wishes' => 'wishes#destroy_wishes'
+  get 'profile' => 'pages#profile'
 
   resources :orders
 
